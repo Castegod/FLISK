@@ -1,0 +1,67 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Usuario {
+  id                Int           @id @default(autoincrement())
+  nombre            String
+  correo            String        @unique
+  contrasena        String
+  tipo              String        @default("ESTUDIANTE")
+  estado            Boolean       @default(true)
+  createdAt         DateTime      @default(now())
+  resetToken        String?
+  resetTokenExpiry  DateTime?
+  reservas          Reserva[]
+  inscripciones     Inscripcion[]
+}
+
+model Espacio {
+  id          Int       @id @default(autoincrement())
+  nombre      String
+  tipo        String
+  capacidad   Int
+  descripcion String?
+  imagen      String?
+  activo      Boolean   @default(true)
+  reservas    Reserva[]
+}
+
+model Actividad {
+  id            Int           @id @default(autoincrement())
+  nombre        String
+  descripcion   String?
+  fecha         DateTime
+  lugar         String
+  cupoMaximo    Int
+  imagen        String?
+  activa        Boolean       @default(true)
+  inscripciones Inscripcion[]
+}
+
+model Reserva {
+  id          Int      @id @default(autoincrement())
+  fecha       DateTime
+  horaInicio  String
+  horaFin     String
+  estado      String   @default("PENDIENTE")
+  createdAt   DateTime @default(now())
+  usuario     Usuario  @relation(fields: [usuarioId], references: [id])
+  usuarioId   Int
+  espacio     Espacio  @relation(fields: [espacioId], references: [id])
+  espacioId   Int
+}
+
+model Inscripcion {
+  id          Int       @id @default(autoincrement())
+  fecha       DateTime  @default(now())
+  usuario     Usuario   @relation(fields: [usuarioId], references: [id])
+  usuarioId   Int
+  actividad   Actividad @relation(fields: [actividadId], references: [id])
+  actividadId Int
+}

@@ -41,6 +41,7 @@ export default function BookingsPage() {
 
   return (
     <div className="p-6 max-w-4xl mx-auto">
+      <Button variant="ghost" onClick={() => router.push("/dashboard")} className="mb-4">← Volver al inicio</Button>
       <h1 className="text-3xl font-bold mb-6">Mis Reservas</h1>
 
       {reservas.length === 0 ? (

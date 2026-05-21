@@ -51,7 +51,7 @@ export default function ActivityDetailPage() {
 
   return (
     <div className="p-6 max-w-4xl mx-auto">
-      <Button variant="ghost" onClick={() => router.back()} className="mb-4">← Volver</Button>
+      <Button variant="ghost" onClick={() => router.push("/activities")} className="mb-4">← Volver a actividades</Button>
 
       <div className="flex justify-between items-start mb-6">
         <div>

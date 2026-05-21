@@ -28,6 +28,7 @@ export default function SpacesPage() {
 
   return (
     <div className="p-6 max-w-6xl mx-auto">
+      <Button variant="ghost" onClick={() => router.push("/dashboard")} className="mb-4">← Volver al inicio</Button>
       <h1 className="text-3xl font-bold mb-6">Espacios</h1>
 
       <div className="flex gap-2 mb-6">

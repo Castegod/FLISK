@@ -59,7 +59,7 @@ export default function SpaceDetailPage() {
 
   return (
     <div className="p-6 max-w-4xl mx-auto">
-      <Button variant="ghost" onClick={() => router.back()} className="mb-4">← Volver</Button>
+      <Button variant="ghost" onClick={() => router.push("/spaces")} className="mb-4">← Volver a espacios</Button>
 
       <div className="flex justify-between items-start mb-6">
         <div>

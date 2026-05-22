@@ -24,26 +24,37 @@ export default function ActivitiesPage() {
   }, [])
 
   return (
-    <div className="p-6 max-w-6xl mx-auto">
-      <Button variant="ghost" onClick={() => router.push("/dashboard")} className="mb-4">← Volver al inicio</Button>
-      <h1 className="text-3xl font-bold mb-6">Actividades</h1>
+    <div className="min-h-screen">
+      <div className="bg-primary py-10 px-6">
+        <div className="max-w-6xl mx-auto">
+          <Button variant="ghost" onClick={() => router.push("/dashboard")} className="text-primary-foreground/70 hover:text-primary-foreground mb-2 -ml-2">← Volver al inicio</Button>
+          <h1 className="text-4xl font-bold text-primary-foreground">Actividades</h1>
+          <p className="text-primary-foreground/80 text-lg mt-2">Inscríbete en actividades culturales y deportivas</p>
+        </div>
+      </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {actividades.map((act) => (
-          <Card key={act.id} className="cursor-pointer hover:shadow-lg transition-shadow" onClick={() => router.push(`/activities/${act.id}`)}>
-            <CardHeader>
-              <CardTitle className="text-lg">{act.nombre}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-muted-foreground mb-2">{act.descripcion}</p>
-              <div className="flex flex-wrap gap-2 text-sm">
-                <Badge variant="outline">{new Date(act.fecha).toLocaleDateString()}</Badge>
-                <Badge variant="outline">{act.lugar}</Badge>
-                <Badge variant="outline">Cupo: {act.cupoMaximo}</Badge>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
+      <div className="max-w-6xl mx-auto px-6 -mt-6 pb-12">
+        {actividades.length === 0 ? (
+          <p className="text-muted-foreground mt-8">No hay actividades disponibles</p>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+            {actividades.map((act) => (
+              <Card key={act.id} className="border-t-4 border-t-secondary shadow-lg cursor-pointer hover:shadow-xl transition-shadow flex flex-col" onClick={() => router.push(`/activities/${act.id}`)}>
+                <CardHeader className="text-center">
+                  <CardTitle className="text-xl">{act.nombre}</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center flex flex-col flex-1">
+                  <p className="text-sm text-muted-foreground mb-4">{act.descripcion}</p>
+                  <div className="mt-auto flex flex-wrap justify-center gap-2">
+                    <Badge variant="secondary">{new Date(act.fecha).toLocaleDateString()}</Badge>
+                    <Badge variant="secondary">{act.lugar}</Badge>
+                    <Badge variant="secondary">Cupo: {act.cupoMaximo}</Badge>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   )

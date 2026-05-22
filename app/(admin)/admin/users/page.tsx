@@ -41,7 +41,7 @@ export default function AdminUsersPage() {
 
       <div className="space-y-3">
         {usuarios.map((usuario) => (
-          <Card key={usuario.id}>
+          <Card key={usuario.id} className="border-t-4 border-t-secondary">
             <CardContent className="flex items-center justify-between p-4">
               <div>
                 <h3 className="font-semibold">{usuario.nombre}</h3>

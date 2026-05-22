@@ -106,7 +106,7 @@ export default function AdminSpacesPage() {
 
       <div className="grid gap-4">
         {espacios.filter((e) => e.activo).map((espacio) => (
-          <Card key={espacio.id}>
+          <Card key={espacio.id} className="border-t-4 border-t-secondary">
             <CardContent className="flex items-center justify-between p-4">
               <div>
                 <h3 className="font-semibold">{espacio.nombre}</h3>

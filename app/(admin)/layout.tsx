@@ -19,9 +19,18 @@ function AdminGuard({ children }: { children: React.ReactNode }) {
   if (status === "loading") return <div className="p-6">Cargando...</div>
   if (session?.user.role !== "ADMIN") return null
 
-  return <>{children}</>
+  return <div className="min-h-screen bg-background">{children}</div>
 }
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
-  return <AdminGuard>{children}</AdminGuard>
+  return (
+    <div className="min-h-screen bg-background">
+      <div className="bg-primary py-4 px-6">
+        <div className="max-w-6xl mx-auto flex justify-between items-center">
+          <h1 className="text-xl font-bold text-primary-foreground">FILSK - Administración</h1>
+        </div>
+      </div>
+      <AdminGuard>{children}</AdminGuard>
+    </div>
+  )
 }

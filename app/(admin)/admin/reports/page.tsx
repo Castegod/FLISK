@@ -25,18 +25,18 @@ export default function AdminReportsPage() {
       <h1 className="text-3xl font-bold mb-6">Reportes</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-        <Card>
+        <Card className="border-t-4 border-t-secondary">
           <CardHeader><CardTitle>Usuarios activos</CardTitle></CardHeader>
           <CardContent><p className="text-4xl font-bold">{data.totalUsuarios}</p></CardContent>
         </Card>
-        <Card>
+        <Card className="border-t-4 border-t-secondary">
           <CardHeader><CardTitle>Total reservas</CardTitle></CardHeader>
           <CardContent><p className="text-4xl font-bold">{data.totalReservas}</p></CardContent>
         </Card>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Card>
+        <Card className="border-t-4 border-t-secondary">
           <CardHeader><CardTitle>Reservas por espacio (30 días)</CardTitle></CardHeader>
           <CardContent>
             <ResponsiveContainer width="100%" height={300}>
@@ -51,7 +51,7 @@ export default function AdminReportsPage() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="border-t-4 border-t-secondary">
           <CardHeader><CardTitle>Inscripciones por actividad</CardTitle></CardHeader>
           <CardContent>
             <ResponsiveContainer width="100%" height={300}>

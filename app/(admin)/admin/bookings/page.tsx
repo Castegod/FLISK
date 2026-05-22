@@ -49,7 +49,7 @@ export default function AdminBookingsPage() {
 
       <div className="space-y-4">
         {reservas.map((reserva) => (
-          <Card key={reserva.id}>
+          <Card key={reserva.id} className="border-t-4 border-t-secondary">
             <CardContent className="flex items-center justify-between p-4">
               <div>
                 <h3 className="font-semibold">{reserva.espacio.nombre}</h3>

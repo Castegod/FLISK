@@ -106,7 +106,7 @@ export default function AdminActivitiesPage() {
 
       <div className="grid gap-4">
         {actividades.filter((a) => a.activa).map((act) => (
-          <Card key={act.id}>
+          <Card key={act.id} className="border-t-4 border-t-secondary">
             <CardContent className="flex items-center justify-between p-4">
               <div>
                 <h3 className="font-semibold">{act.nombre}</h3>

@@ -27,34 +27,41 @@ export default function SpacesPage() {
   const tipos = ["DEPORTIVO", "CULTURAL", "SALA"]
 
   return (
-    <div className="p-6 max-w-6xl mx-auto">
-      <Button variant="ghost" onClick={() => router.push("/dashboard")} className="mb-4">← Volver al inicio</Button>
-      <h1 className="text-3xl font-bold mb-6">Espacios</h1>
-
-      <div className="flex gap-2 mb-6">
-        <Button variant={filtro === "" ? "default" : "outline"} onClick={() => setFiltro("")}>Todos</Button>
-        {tipos.map((t) => (
-          <Button key={t} variant={filtro === t ? "default" : "outline"} onClick={() => setFiltro(t)}>
-            {t}
-          </Button>
-        ))}
+    <div className="min-h-screen">
+      <div className="bg-primary py-10 px-6">
+        <div className="max-w-6xl mx-auto">
+          <Button variant="ghost" onClick={() => router.push("/dashboard")} className="text-primary-foreground/70 hover:text-primary-foreground mb-2 -ml-2">← Volver al inicio</Button>
+          <h1 className="text-4xl font-bold text-primary-foreground">Espacios</h1>
+          <p className="text-primary-foreground/80 text-lg mt-2">Reserva canchas, salones y auditorios</p>
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {espacios.map((espacio) => (
-          <Card key={espacio.id} className="cursor-pointer hover:shadow-lg transition-shadow" onClick={() => router.push(`/spaces/${espacio.id}`)}>
-            <CardHeader>
-              <div className="flex justify-between items-start">
-                <CardTitle className="text-lg">{espacio.nombre}</CardTitle>
-                <Badge>{espacio.tipo}</Badge>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-muted-foreground mb-2">{espacio.descripcion}</p>
-              <p className="text-sm">Capacidad: {espacio.capacidad} personas</p>
-            </CardContent>
-          </Card>
-        ))}
+      <div className="max-w-6xl mx-auto px-6 -mt-6 pb-12">
+        <div className="flex gap-2 mb-6 mt-8">
+          <Button variant={filtro === "" ? "default" : "outline"} onClick={() => setFiltro("")}>Todos</Button>
+          {tipos.map((t) => (
+            <Button key={t} variant={filtro === t ? "default" : "outline"} onClick={() => setFiltro(t)}>
+              {t}
+            </Button>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {espacios.map((espacio) => (
+            <Card key={espacio.id} className="border-t-4 border-t-secondary shadow-lg cursor-pointer hover:shadow-xl transition-shadow flex flex-col" onClick={() => router.push(`/spaces/${espacio.id}`)}>
+              <CardHeader className="text-center">
+                <CardTitle className="text-xl">{espacio.nombre}</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center flex flex-col flex-1">
+                <p className="text-sm text-muted-foreground mb-4">{espacio.descripcion}</p>
+                <div className="mt-auto flex flex-wrap justify-center gap-2">
+                  <Badge variant="secondary">{espacio.tipo}</Badge>
+                  <Badge variant="secondary">Capacidad: {espacio.capacidad}</Badge>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </div>
     </div>
   )

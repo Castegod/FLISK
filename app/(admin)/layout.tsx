@@ -3,6 +3,7 @@
 import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import { useEffect } from "react"
+import Image from "next/image"
 
 function AdminGuard({ children }: { children: React.ReactNode }) {
   const { data: session, status } = useSession()
@@ -25,9 +26,10 @@ function AdminGuard({ children }: { children: React.ReactNode }) {
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen bg-background">
-      <div className="bg-primary py-4 px-6">
-        <div className="max-w-6xl mx-auto flex justify-between items-center">
-          <h1 className="text-xl font-bold text-primary-foreground">FILSK - Administración</h1>
+      <div className="bg-primary py-3 px-6">
+        <div className="max-w-6xl mx-auto flex items-center gap-3">
+          <Image src="/logo.svg" alt="UMNG" width={28} height={32} className="h-8 w-auto" />
+          <h1 className="text-lg font-bold text-primary-foreground">FILSK - Administración</h1>
         </div>
       </div>
       <AdminGuard>{children}</AdminGuard>

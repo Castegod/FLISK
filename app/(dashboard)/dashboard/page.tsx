@@ -4,6 +4,7 @@ import { useSession, signOut } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import Image from "next/image"
 import { useEffect } from "react"
 
 export default function DashboardPage() {
@@ -26,6 +27,7 @@ export default function DashboardPage() {
     <div className="min-h-screen">
       <div className="bg-primary py-12 px-6">
         <div className="max-w-4xl mx-auto text-center">
+          <Image src="/logo.svg" alt="UMNG" width={60} height={70} className="h-20 w-auto mx-auto mb-4" />
           <h1 className="text-4xl font-bold text-primary-foreground mb-4">
             Bienvenido, {session.user.name}
           </h1>
@@ -46,33 +48,39 @@ export default function DashboardPage() {
 
       <div className="max-w-5xl mx-auto px-6 -mt-8 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <Card className="border-t-4 border-t-secondary shadow-lg">
+          <Card className="border-t-4 border-t-secondary shadow-lg flex flex-col">
             <CardHeader className="text-center">
               <CardTitle className="text-2xl">Espacios</CardTitle>
             </CardHeader>
-            <CardContent className="text-center">
-              <p className="text-muted-foreground mb-6">Reserva canchas, salones y auditorios</p>
-              <Button className="w-full" onClick={() => router.push("/spaces")}>Ver espacios</Button>
+            <CardContent className="text-center flex flex-col flex-1">
+              <p className="text-muted-foreground">Reserva canchas, salones y auditorios</p>
+              <div className="mt-auto pt-6">
+                <Button className="w-full" onClick={() => router.push("/spaces")}>Ver espacios</Button>
+              </div>
             </CardContent>
           </Card>
 
-          <Card className="border-t-4 border-t-secondary shadow-lg">
+          <Card className="border-t-4 border-t-secondary shadow-lg flex flex-col">
             <CardHeader className="text-center">
               <CardTitle className="text-2xl">Actividades</CardTitle>
             </CardHeader>
-            <CardContent className="text-center">
-              <p className="text-muted-foreground mb-6">Inscríbete en actividades culturales y deportivas</p>
-              <Button className="w-full" onClick={() => router.push("/activities")}>Ver actividades</Button>
+            <CardContent className="text-center flex flex-col flex-1">
+              <p className="text-muted-foreground">Inscríbete en actividades culturales y deportivas</p>
+              <div className="mt-auto pt-6">
+                <Button className="w-full" onClick={() => router.push("/activities")}>Ver actividades</Button>
+              </div>
             </CardContent>
           </Card>
 
-          <Card className="border-t-4 border-t-secondary shadow-lg">
+          <Card className="border-t-4 border-t-secondary shadow-lg flex flex-col">
             <CardHeader className="text-center">
               <CardTitle className="text-2xl">Mis Reservas</CardTitle>
             </CardHeader>
-            <CardContent className="text-center">
-              <p className="text-muted-foreground mb-6">Consulta y gestiona tus reservas</p>
-              <Button className="w-full" onClick={() => router.push("/bookings")}>Ver reservas</Button>
+            <CardContent className="text-center flex flex-col flex-1">
+              <p className="text-muted-foreground">Consulta y gestiona tus reservas</p>
+              <div className="mt-auto pt-6">
+                <Button className="w-full" onClick={() => router.push("/bookings")}>Ver reservas</Button>
+              </div>
             </CardContent>
           </Card>
         </div>

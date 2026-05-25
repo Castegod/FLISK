@@ -46,8 +46,8 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      <div className="max-w-5xl mx-auto px-6 -mt-8 pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="max-w-6xl mx-auto px-6 -mt-8 pb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <Card className="border-t-4 border-t-secondary shadow-lg flex flex-col">
             <CardHeader className="text-center">
               <CardTitle className="text-2xl">Espacios</CardTitle>
@@ -68,6 +68,18 @@ export default function DashboardPage() {
               <p className="text-muted-foreground">Inscríbete en actividades culturales y deportivas</p>
               <div className="mt-auto pt-6">
                 <Button className="w-full" onClick={() => router.push("/activities")}>Ver actividades</Button>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="border-t-4 border-t-secondary shadow-lg flex flex-col">
+            <CardHeader className="text-center">
+              <CardTitle className="text-2xl">Novedades</CardTitle>
+            </CardHeader>
+            <CardContent className="text-center flex flex-col flex-1">
+              <p className="text-muted-foreground">Comparte y entérate de novedades</p>
+              <div className="mt-auto pt-6">
+                <Button className="w-full" onClick={() => router.push("/novedades")}>Ver novedades</Button>
               </div>
             </CardContent>
           </Card>

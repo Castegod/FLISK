@@ -16,7 +16,7 @@ export default withAuth(
     callbacks: {
       authorized({ token, req }) {
         const path = req.nextUrl.pathname
-        if (path.startsWith("/dashboard") || path.startsWith("/spaces") || path.startsWith("/activities") || path.startsWith("/bookings") || path.startsWith("/admin")) {
+        if (path.startsWith("/dashboard") || path.startsWith("/spaces") || path.startsWith("/activities") || path.startsWith("/bookings") || path.startsWith("/novedades") || path.startsWith("/admin")) {
           return !!token
         }
         return true
@@ -26,5 +26,5 @@ export default withAuth(
 )
 
 export const config = {
-  matcher: ["/dashboard/:path*", "/spaces/:path*", "/activities/:path*", "/bookings/:path*", "/admin/:path*"],
+  matcher: ["/dashboard/:path*", "/spaces/:path*", "/activities/:path*", "/bookings/:path*", "/novedades/:path*", "/admin/:path*"],
 }
